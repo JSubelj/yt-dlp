@@ -181,7 +181,7 @@ lint-fix = "ruff check --fix {args:.}"
 features = [
     "curl-cffi",
     "default",
-    ]
+]
 dependency-groups = [
     "test",
 ]
