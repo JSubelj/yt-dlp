@@ -178,7 +178,10 @@ lint-check = "ruff check {args:.}"
 lint-fix = "ruff check --fix {args:.}"
 
 [tool.hatch.envs.hatch-test]
-features = ["default"]
+features = [
+    "curl-cffi",
+    "default",
+    ]
 dependency-groups = [
     "test",
 ]
