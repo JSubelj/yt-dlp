@@ -178,6 +178,7 @@ lint-check = "ruff check {args:.}"
 lint-fix = "ruff check --fix {args:.}"
 
 [tool.hatch.envs.hatch-test]
+features = ["default"]
 dependency-groups = [
     "test",
 ]
