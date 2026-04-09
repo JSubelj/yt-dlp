@@ -210,7 +210,19 @@ class RTVSLOShowIE(InfoExtractor):
         'podkasti': 10,
         'oddaja': 50,
     }
-    _VALID_URL = r'https?://(?P<service>(365|4d|val202))\.rtvslo.si/(?P<type>(oddaja|podkasti|podkast))/(?P<title>.+)/(?P<id>\d+)'
+    #    _VALID_URL = r'https?://(?P<service>(365|4d|val202))\.rtvslo.si/(?P<type>(oddaja|podkasti|podkast))/(?P<title>[^/]+)/(?P<id>\d+)/?$'
+    _VALID_URL = r'''(?x)
+            https?://
+            (?P<service>365|4d|val202)\.rtvslo\.si/
+            (?P<type>
+                (?:(?<=365\.rtvslo\.si/)|(?<=4d\.rtvslo\.si/))(?:oddaja|podkasti)
+                |
+                (?:(?<=val202\.rtvslo\.si/))podkast
+            )/
+            (?P<title>[^/]+)/
+            (?P<id>\d+)
+            /?$
+        '''
 
     _TESTS = [{
         'url': 'https://365.rtvslo.si/oddaja/ekipa-bled/173250997',
